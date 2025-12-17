@@ -1,0 +1,1 @@
+DATABASE_URL = "postgresql://postgres:AcademyRootPassword@localhost:5432/Complaint_DB"
