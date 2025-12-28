@@ -1,16 +1,19 @@
-from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
 from datetime import datetime
 from database import Base
 
-
 class Comment(Base):
     __tablename__ = "comments"
 
-    id = Column(Integer, primary_key=True, index=True,autoincrement=True)
-    complaint_id = Column(Integer, ForeignKey("complaints.id", ondelete="CASCADE"))
-    user_id=Column(Integer, ForeignKey("users.user_id"))
-    text = Column(String, nullable=False)   
-    created_at = Column(DateTime, default=datetime)
+    id = Column(Integer, primary_key=True, index=True)
+    complaint_id = Column(Integer, ForeignKey("complaints.id", ondelete="CASCADE"), nullable=False)
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
+    content = Column(String, nullable=False)  # must match DB column
+    created_at = Column(DateTime, default=datetime.utcnow)
 
     complaint = relationship("Complaint", back_populates="comments")
+    user = relationship("User", back_populates="comments")
+
+
+
