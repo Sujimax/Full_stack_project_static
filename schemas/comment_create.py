@@ -4,7 +4,7 @@ from typing import Optional
 
 class CommentCreate(BaseModel):
     complaint_id: int
-    content: str  # must match backend
+    content: str  
 
 class CommentOut(BaseModel):
     id: int
@@ -14,6 +14,5 @@ class CommentOut(BaseModel):
     created_at: datetime
     user_name: Optional[str] = "Unknown User"
 
-    class Config:
-        orm_mode = True
+    model_config = {"from_attributes": True}
 

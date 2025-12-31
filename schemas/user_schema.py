@@ -18,8 +18,7 @@ class UserOut(BaseModel):
     email: EmailStr
     role: str
 
-    class Config:
-        from_attributes = True
+    model_config = {"from_attributes": True}
 
 class Token(BaseModel):
     access_token: str

@@ -9,7 +9,7 @@ class Comment(Base):
     id = Column(Integer, primary_key=True, index=True)
     complaint_id = Column(Integer, ForeignKey("complaints.id", ondelete="CASCADE"), nullable=False)
     user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
-    content = Column(String, nullable=False)  # must match DB column
+    content = Column(String, nullable=False)  
     created_at = Column(DateTime, default=datetime.utcnow)
 
     complaint = relationship("Complaint", back_populates="comments")

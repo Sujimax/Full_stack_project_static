@@ -6,4 +6,4 @@ class Vote(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     complaint_id = Column(Integer, ForeignKey("complaints.id"))
-    voter_name = Column(String)   # Use voter_name instead of user_email if you want to show names
+    voter_name = Column(String)   

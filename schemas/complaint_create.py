@@ -3,10 +3,8 @@ from datetime import datetime
 from typing import Optional
 
 
-# ---------------- CREATE COMPLAINT ----------------
 class ComplaintCreate(BaseModel):
-    user_id: int          # REQUIRED, logged-in user
-    # name: str
+    user_id: int         
     problem_type: str
     description: str
     district: str
@@ -15,7 +13,6 @@ class ComplaintCreate(BaseModel):
     image_url: Optional[str] = None
 
 
-# ---------------- UPDATE COMPLAINT ----------------
 class ComplaintUpdate(BaseModel):
     problem_type: str
     description: str
@@ -23,9 +20,10 @@ class ComplaintUpdate(BaseModel):
     village: str
     door_no: str
 
+
 class ComplaintOut(BaseModel):
-    id: int
-    user_id: Optional[int]   # <-- allow None
+    id: int      #complaint id
+    user_id: Optional[int]  
     problem_type: str
     description: str
     district: str

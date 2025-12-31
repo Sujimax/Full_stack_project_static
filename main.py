@@ -3,9 +3,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from database import engine, Base
 
-from models.user_model import User
-from models.complaint_model import Complaint
-from models.comment_model import Comment
+# from models.user_model import User
+# from models.complaint_model import Complaint
+# from models.comment_model import Comment
 
 from router.user_complaint import user_complaint
 from router.admin import admin_router

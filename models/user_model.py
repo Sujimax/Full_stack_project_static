@@ -12,14 +12,6 @@ class User(Base):
     password = Column(String, nullable=False)
     role = Column(String, default="user")
 
-    complaints = relationship(
-        "Complaint",
-        back_populates="user",
-        cascade="all, delete-orphan"
-    )
+    complaints = relationship( "Complaint", back_populates="user", cascade="all, delete-orphan")
 
-    comments = relationship(
-        "Comment",
-        back_populates="user",
-        cascade="all, delete-orphan"
-    )
+    comments = relationship("Comment", back_populates="user", cascade="all, delete-orphan")
